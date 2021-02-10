@@ -1,6 +1,6 @@
 package com.vane.newsapp.api
 
-import com.vane.newsapp.data.entity.NewsResponse
+import com.vane.newsapp.models.NewsResponse
 import com.vane.newsapp.utils.Constants.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET

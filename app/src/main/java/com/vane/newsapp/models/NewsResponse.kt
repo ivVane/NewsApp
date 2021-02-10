@@ -1,4 +1,4 @@
-package com.vane.newsapp.data.entity
+package com.vane.newsapp.models
 
 data class NewsResponse(
     val articles: MutableList<NewsArticle>,

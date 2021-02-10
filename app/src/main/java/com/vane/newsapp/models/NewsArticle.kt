@@ -1,8 +1,12 @@
-package com.vane.newsapp.data.entity
+package com.vane.newsapp.models
 
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+
+@Entity(tableName = "articles")
 data class NewsArticle(
+    @PrimaryKey(autoGenerate = true)
     var id: Int? = null,
     val author: String?,
     val content: String?,
