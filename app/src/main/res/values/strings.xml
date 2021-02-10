@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">NewsApp</string>
 
+    <string name="headlines_label">Headlines</string>
     <string name="breaking_news_label">Breaking News</string>
-    <string name="saved_news_label">Saved News</string>
-    <string name="search_news_label">Search News</string>
+    <string name="saved_news_label">Bookmarks</string>
+    <string name="search_news_label">Search</string>
     <string name="search_news_hint">Search…</string>
     <string name="source_label">SOURCE</string>
     <string name="title_label">TITLE</string>
