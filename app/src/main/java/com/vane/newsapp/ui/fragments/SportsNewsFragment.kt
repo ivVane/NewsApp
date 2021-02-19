@@ -85,7 +85,8 @@ class SportsNewsFragment : Fragment(R.layout.fragment_sports_news),
             putParcelable("newsArticle", newsArticle)
         }
         findNavController().navigate(
-            R.id.action_headlinesCategoryFragment_to_articleFragment
+            R.id.action_headlinesCategoryFragment_to_articleFragment,
+            bundle
         )
     }
 
