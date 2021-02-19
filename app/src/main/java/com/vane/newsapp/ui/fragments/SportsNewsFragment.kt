@@ -6,16 +6,19 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.vane.newsapp.R
 import com.vane.newsapp.adapters.NewsLoadStateAdapter
 import com.vane.newsapp.adapters.NewsPagingAdapter
 import com.vane.newsapp.databinding.FragmentSportsNewsBinding
+import com.vane.newsapp.models.NewsArticle
 import com.vane.newsapp.ui.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SportsNewsFragment : Fragment(R.layout.fragment_sports_news) {
+class SportsNewsFragment : Fragment(R.layout.fragment_sports_news),
+    NewsPagingAdapter.OnItemClickListener {
 
     private val viewModel by viewModels<NewsViewModel>()
 
@@ -27,7 +30,7 @@ class SportsNewsFragment : Fragment(R.layout.fragment_sports_news) {
 
         _binding = FragmentSportsNewsBinding.bind(view)
 
-        val newsPagingAdapter = NewsPagingAdapter()
+        val newsPagingAdapter = NewsPagingAdapter(this)
 
         binding.apply {
             recyclerViewSportsNews.setHasFixedSize(true)
@@ -73,6 +76,17 @@ class SportsNewsFragment : Fragment(R.layout.fragment_sports_news) {
         viewModel.getSportsNews.observe(viewLifecycleOwner) {
             newsPagingAdapter.submitData(viewLifecycleOwner.lifecycle, it)
         }
+    }
+
+    // On Click method to navigate to ArticleFragment
+    override fun onItemClick(newsArticle: NewsArticle) {
+        // Creating a Bundle argument to pass it to the ArticleFragment.
+        val bundle = Bundle().apply {
+            putParcelable("newsArticle", newsArticle)
+        }
+        findNavController().navigate(
+            R.id.action_headlinesCategoryFragment_to_articleFragment
+        )
     }
 
     override fun onDestroyView() {

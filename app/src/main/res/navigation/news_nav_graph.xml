@@ -7,7 +7,11 @@
     <fragment
         android:id="@+id/articleFragment"
         android:name="com.vane.newsapp.ui.fragments.ArticleFragment"
-        android:label="ArticleFragment" />
+        android:label="ArticleFragment" >
+        <argument
+            android:name="newsArticle"
+            app:argType="com.vane.newsapp.models.NewsArticle" />
+    </fragment>
     <fragment
         android:id="@+id/savedNewsFragment"
         android:name="com.vane.newsapp.ui.fragments.SavedNewsFragment"
@@ -37,7 +41,7 @@
         android:name="com.vane.newsapp.ui.fragments.HeadlinesCategoryFragment"
         android:label="HeadlinesCategoryFragment">
         <action
-            android:id="@+id/action_headlinesCategoryFragment3_to_articleFragment"
+            android:id="@+id/action_headlinesCategoryFragment_to_articleFragment"
             app:destination="@id/articleFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
