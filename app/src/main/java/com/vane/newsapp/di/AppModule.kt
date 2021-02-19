@@ -52,4 +52,8 @@ object AppModule {
         Constants.NEWS_DATABASE_NAME
     ).build()
 
+    @Singleton
+    @Provides
+    fun provideNewsArticleDao(db: ArticleDatabase) = db.getArticleDao()
+
 }
