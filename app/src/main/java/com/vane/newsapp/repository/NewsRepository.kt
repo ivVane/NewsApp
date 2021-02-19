@@ -55,4 +55,15 @@ class NewsRepository @Inject constructor(
                 NewsPagingSource(newsApi, "health", "")
             }
         ).liveData
+
+    // Search for articles. Default language is English.
+    fun getSearchResults(query: String) =
+        Pager(
+            config = PagingConfig(
+                pageSize = DEFAULT_PAGE_SIZE,
+                maxSize = MAX_SIZE,
+                enablePlaceholders = false
+            ),
+            pagingSourceFactory = { SearchNewsPagingSource(newsApi, query, "en") }
+        ).liveData
 }
