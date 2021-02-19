@@ -2,72 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/news_nav_graph"
-    app:startDestination="@id/articleFragment">
+    app:startDestination="@id/headlinesCategoryFragment">
 
     <fragment
         android:id="@+id/articleFragment"
         android:name="com.vane.newsapp.ui.fragments.ArticleFragment"
         android:label="ArticleFragment" />
-    <fragment
-        android:id="@+id/breakingNewsFragment"
-        android:name="com.vane.newsapp.ui.fragments.BreakingNewsFragment"
-        android:label="BreakingNewsFragment">
-        <action
-            android:id="@+id/action_breakingNewsFragment_to_articleFragment"
-            app:destination="@id/articleFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
-    <fragment
-        android:id="@+id/businessNewsFragment"
-        android:name="com.vane.newsapp.ui.fragments.BusinessNewsFragment"
-        android:label="BusinessNewsFragment">
-        <action
-            android:id="@+id/action_businessNewsFragment_to_articleFragment"
-            app:destination="@id/articleFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
-    <fragment
-        android:id="@+id/entertainmentNewsFragment"
-        android:name="com.vane.newsapp.ui.fragments.EntertainmentNewsFragment"
-        android:label="EntertainmentNewsFragment">
-        <action
-            android:id="@+id/action_entertainmentNewsFragment_to_articleFragment"
-            app:destination="@id/articleFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
-    <fragment
-        android:id="@+id/healthNewsFragment"
-        android:name="com.vane.newsapp.ui.fragments.HealthNewsFragment"
-        android:label="HealthNewsFragment">
-        <action
-            android:id="@+id/action_healthNewsFragment_to_articleFragment"
-            app:destination="@id/articleFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
-    <fragment
-        android:id="@+id/sportsNewsFragment"
-        android:name="com.vane.newsapp.ui.fragments.SportsNewsFragment"
-        android:label="SportsNewsFragment">
-        <action
-            android:id="@+id/action_sportsNewsFragment_to_articleFragment"
-            app:destination="@id/articleFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
     <fragment
         android:id="@+id/savedNewsFragment"
         android:name="com.vane.newsapp.ui.fragments.SavedNewsFragment"

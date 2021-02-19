@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.vane.newsapp.models.NewsArticle
+import com.vane.newsapp.utils.Converters
 
 @Database(
     entities = [NewsArticle::class],

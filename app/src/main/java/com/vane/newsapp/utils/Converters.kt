@@ -1,4 +1,4 @@
-package com.vane.newsapp.db
+package com.vane.newsapp.utils
 
 import androidx.room.TypeConverter
 import com.vane.newsapp.models.Source
@@ -14,5 +14,4 @@ class Converters {
     fun toSource(name: String): Source {
         return Source(name, name)
     }
-
 }
