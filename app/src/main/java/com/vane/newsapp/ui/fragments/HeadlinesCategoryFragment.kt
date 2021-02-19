@@ -5,8 +5,10 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.vane.newsapp.R
 import com.vane.newsapp.adapters.ViewPagerAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_headlines_category.*
 
+@AndroidEntryPoint
 class HeadlinesCategoryFragment : Fragment(R.layout.fragment_headlines_category) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
