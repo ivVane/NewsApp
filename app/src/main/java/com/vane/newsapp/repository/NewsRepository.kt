@@ -6,6 +6,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
 import com.vane.newsapp.api.NewsApi
+import com.vane.newsapp.db.ArticleDatabase
 import com.vane.newsapp.models.NewsArticle
 import com.vane.newsapp.utils.Constants.DEFAULT_PAGE_SIZE
 import com.vane.newsapp.utils.Constants.MAX_SIZE
@@ -14,7 +15,8 @@ import javax.inject.Singleton
 
 @Singleton
 class NewsRepository @Inject constructor(
-    private val newsApi: NewsApi
+    private val newsApi: NewsApi,
+    private val db: ArticleDatabase
 ) {
 
     // Query for Breaking News headlines.
@@ -66,4 +68,11 @@ class NewsRepository @Inject constructor(
             ),
             pagingSourceFactory = { SearchNewsPagingSource(newsApi, query, "en") }
         ).liveData
+
+    // Room database functions.
+    suspend fun upsert(article: NewsArticle) = db.getArticleDao().upsert(article)
+
+    suspend fun deleteArticle(article: NewsArticle) = db.getArticleDao().deleteArticle(article)
+
+    fun getSavedNews() = db.getArticleDao().getAllArticles()
 }

@@ -6,6 +6,7 @@ import androidx.paging.cachedIn
 import com.vane.newsapp.models.NewsArticle
 import com.vane.newsapp.repository.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -39,4 +40,16 @@ class NewsViewModel @Inject constructor(
     companion object {
         private const val DEFAULT_QUERY = "default_query"
     }
+
+    // Function to save(insert) our favorite Articles into our Room Database(article_db).
+    fun saveArticle(article: NewsArticle) = viewModelScope.launch {
+        repository.upsert(article)
+    }
+
+    // Function to delete an Articles from our Room Database(article_db).
+    fun deleteArticle(article: NewsArticle) = viewModelScope.launch {
+        repository.deleteArticle(article)
+    }
+
+    fun getSavedNews() = repository.getSavedNews()
 }
