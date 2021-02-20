@@ -9,6 +9,10 @@ import com.bumptech.glide.Glide
 import com.vane.newsapp.databinding.FragmentArticlePreviewBinding
 import com.vane.newsapp.models.NewsArticle
 
+/**
+ * We created this adapter to use it for our SavedNewsFragment to display the articles
+ * saved into our local Room database.
+ */
 class NewsAdapter(private val listener: OnItemClickListener) :
     RecyclerView.Adapter<NewsAdapter.SavedNewsViewHolder>() {
 

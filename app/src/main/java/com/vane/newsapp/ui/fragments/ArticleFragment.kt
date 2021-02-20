@@ -6,6 +6,7 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.Snackbar
 import com.vane.newsapp.R
 import com.vane.newsapp.databinding.FragmentArticleBinding
 import com.vane.newsapp.ui.NewsViewModel
@@ -32,8 +33,12 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
                 webViewClient = WebViewClient()
                 loadUrl(newsArticle.url)
             }
+
+            // OnCLick saves the Article to our Room db
             fab.setOnClickListener {
-                // We will implement this later.
+                viewModel.saveArticle(newsArticle)
+                Snackbar.make(view, getString(R.string.saved_article_label), Snackbar.LENGTH_SHORT)
+                    .show()
             }
         }
     }
